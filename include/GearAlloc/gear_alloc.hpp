@@ -16,7 +16,7 @@ namespace GearAlloc {
     
     public:
         PoolAllocer(size_t page_size = GEARALLOC_DEFAULT_PAGE)
-        : pool_size(sizeof(T)), map_size(page_size*pool_size) { }
+        : pool_size(sizeof(T)), map_size(page_size * pool_size) { }
 
         ~PoolAllocer() {
             for(size_t i = 0; i < map_count; ++i) {

@@ -26,4 +26,5 @@ _deps/
 # Custom
 compile_commands.json
 libgear_alloc.a
+libgear_alloc.so
 alloc_test

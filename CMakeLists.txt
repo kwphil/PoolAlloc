@@ -28,15 +28,17 @@ set(GEAR_ALLOC
     src/core.c
 )
 
-add_library(gear_alloc ${GEAR_ALLOC})
+add_library(gear_alloc SHARED ${GEAR_ALLOC})
 
 target_include_directories(gear_alloc PUBLIC
     ${CMAKE_SOURCE_DIR}/include
 )
 
-add_executable(alloc_test src/test.cpp)
-target_link_libraries(alloc_test gear_alloc) 
+if(TESTER)
+    add_executable(alloc_test src/test.cpp)
+    target_link_libraries(alloc_test gear_alloc) 
 
-target_include_directories(alloc_test PUBLIC
-    ${CMAKE_SOURCE_DIR}/include
-)
+    target_include_directories(alloc_test PUBLIC
+        ${CMAKE_SOURCE_DIR}/include
+    )
+endif()
